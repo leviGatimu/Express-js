@@ -2,9 +2,31 @@ import express from 'express';
 
 const router = express.Router();
 
+const users = [
+    {
+    firstName:"John",
+    lastName: "Doe",
+    age: 25
+    },
+     {
+    firstName:"Jane",
+    lastName: "Doe",
+    age: 24
+    }
+]
+
 //All routes here start from /users , before it was /users/users
-router.use('/', (req, res) => {
-    res.send("Hello from users page");
+router.get('/', (req, res) => {
+    console.log(users);
+    res.send(users);
 });
 
-export default express;
+router.post('/', (req , res) => {
+
+    const user= req.body;
+    users.push(user);
+
+    res.send(`User with the name ${user.firstName} was added to the database!`);
+})
+
+export default router;
