@@ -1,5 +1,4 @@
 import express from 'experss';
-
 const routes = express.Routes();
 
 const users = [
@@ -13,7 +12,7 @@ const users = [
     lastName: "Doe",
     age: 24
     }
-]
+];
 
 routes.get('/', (req, res) => {
     console.log(users);
