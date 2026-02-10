@@ -21,7 +21,7 @@ routes.get('/', (req, res) => {
 
 routes.post('/', (req, res) => {
     const user = req.body;
-    res.send(`User succesfully inputed: ${user}`);
+    res.send(`User succesfully inputed:: ${user}`);
     console.log(user);
 });
 
