@@ -1,6 +1,6 @@
-import express from 'express';
+import express from 'experss';
 
-const router = express.Router();
+const routes = express.Routes();
 
 const users = [
     {
@@ -15,18 +15,14 @@ const users = [
     }
 ]
 
-//All routes here start from /users , before it was /users/users
-router.get('/', (req, res) => {
+routes.get('/', (req, res) => {
     console.log(users);
     res.send(users);
 });
 
-router.post('/', (req , res) => {
+routes.post('/', (req, res) => {
+    const user = req.body;
+    res.send(`User succesfully inputed: ${user}`);
+    console.log(user);
+});
 
-    const user= req.body;
-    users.push(user);
-
-    res.send(`User with the name ${user.firstName} was added to the database!`);
-})
-
-export default router;
