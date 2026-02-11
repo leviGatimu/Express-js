@@ -1,27 +1,57 @@
-import express from 'experss';
-const routes = express.Routes();
+import express from 'express';
 
-const users = [
-    {
-    firstName:"John",
-    lastName: "Doe",
-    age: 25
-    },
-     {
-    firstName:"Jane",
-    lastName: "Doe",
-    age: 24
-    }
+const router = express.Router();
+
+const Tasks = [
+    {id: 1, title: "Study", completed : false},
+    {id: 2, title: "Homework", completed : false},
+
 ];
 
-routes.get('/', (req, res) => {
-    console.log(users);
-    res.send(users);
+//Get all students
+router.get('/', (req, res) => {
+    console.log(Tasks);
+    res.send(Tasks);
 });
 
-routes.post('/', (req, res) => {
-    const user = req.body;
-    res.send(`User succesfully inputed:: ${user}`);
-    console.log(user);
+//Post tasks onto array
+router.post('/', (req, res) => {
+    const todo = req.body;
+    Tasks.push(todo);
+    res.send(`The todo ${todo.title} was succesfully added`)
 });
 
+//Get by id
+router.get('/:id', (req , res)=> {
+    const id = parseInt(req.params.id);
+    const task = Tasks.find(t=> t.id == id)
+     if(!task){
+        res.send("Task not found");
+        console.log("Task not found")
+     }
+      res.send(task);
+     console.log(task);
+});
+
+// Update tasks
+router.put('/:id', (req, res) => {
+    const id = parseInt(req.params.id);
+    const updated = req.body;
+    const task = Tasks.find(t=> t.id == id);
+    if(!task){
+        res.send("User not found");
+    }
+    task.title = updated.title
+    task.completed = updated.completed;
+    res.send(task);
+    
+});
+
+//Delete tasks
+router.delete('/:id', (req, res)=> {
+    const id = req.params.id
+    const updated = Tasks.filter(t=> t.id != id);
+    res.send(updated);
+})
+
+export default router;
