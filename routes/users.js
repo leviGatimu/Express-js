@@ -51,7 +51,13 @@ router.put('/:id', (req, res) => {
 router.delete('/:id', (req, res)=> {
     const id = req.params.id
     const updated = Tasks.filter(t=> t.id != id);
-    res.send(updated);
+    if(!updated){
+        res.status(404).send("Not found");
+    }
+    else{
+        res.status(200).send("Found");
+        req.send(updated);
+    }
 })
 
 export default router;
