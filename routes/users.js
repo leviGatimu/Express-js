@@ -4,7 +4,7 @@ const router = express.Router();
 
 const Tasks = [
     {id: 1, title: "Study", completed : false},
-    {id: 2, title: "Homework", completed : false},
+    {id: 2, title: "Homework", completed : false}
 
 ];
 
@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
     const todo = req.body;
     Tasks.push(todo);
-    res.send(`The todo ${todo.title} was succesfully added`)
+    res.send(`The tod.o ${todo.title} was succesfully added`)
 });
 
 //Get by id
@@ -48,16 +48,18 @@ router.put('/:id', (req, res) => {
 });
 
 //Delete tasks
-router.delete('/:id', (req, res)=> {
-    const id = req.params.id
-    const updated = Tasks.filter(t=> t.id != id);
-    if(!updated){
-        res.status(404).send("Not found");
+router.delete('/:id', (req, res) => {
+    const id= Number(req.params.id);
+    const index = Tasks.findIndex(t=> t.id == id);
+
+    if(index === -1){
+        res.status(404).send("Task not found")
     }
     else{
-        res.status(200).send("Found");
-        req.send(updated);
+        Tasks.splice(index, 1);
+        res.status(200).send("Student deleted: Get to see data");
     }
-})
+});
+
 
 export default router;
