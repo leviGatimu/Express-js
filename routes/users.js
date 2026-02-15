@@ -18,7 +18,7 @@ router.get('/', (req, res) => {
 router.post('/', (req, res) => {
     const todo = req.body;
     Tasks.push(todo);
-    res.send(`The tod.o ${todo.title} was succesfully added`)
+    res.send(`The todo ${todo.title} was succesfully added`)
 });
 
 //Get by id
