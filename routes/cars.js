@@ -32,5 +32,26 @@ router.get('/:id', (req, res) => {
     res.send(car);
 });
 
+router.put('/:id', (req, res)=>{
+    const id= parseInt(req.params.id);
+    const updated = req.body;
+    const car = car.find(c=> c.id === id);  
+    if(!car){
+        res.send("Car not found");
+    }
+    car.brand = updated.brand;
+    car.country = updated.country;
+});
+
+router.delete('/:id', (req, res)=>{
+    const id= parseInt(req.params.id);
+    const car = car.findIndex(c => c.id === id);
+    if (car === -1){
+        res.status(404).send("Car not found");
+    }
+    cars.splice(car, 1);
+    res.send(`Car with id ${id} was deleted`);
+})
+
 
 export default router;
