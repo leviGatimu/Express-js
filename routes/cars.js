@@ -35,7 +35,7 @@ router.get('/:id', (req, res) => {
 router.put('/:id', (req, res)=>{
     const id= parseInt(req.params.id);
     const updated = req.body;
-    const car = car.find(c=> c.id === id);  
+    const car = cars.find(c=> c.id === id);  
     if(!car){
         res.send("Car not found");
     }
