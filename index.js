@@ -1,21 +1,19 @@
 import express from 'express';
 import bodyParser from 'body-parser';
-import todoRoutes from './routes/users.js'
-
+import cars from './routes/cars.js';
 
 const app = express();
-const PORT = 5000;
+const PORT = 3000;
 
 app.use(bodyParser.json());
-app.use('/tasks', todoRoutes);
+app.use('/cars', cars);
 
 
-
-
-
-app.get('/', (req, res) => {
-    res.send("Hello from homepage");
-
+app.get('/', (req, res)=> {
+    res.send("Hell from homepage");
 });
 
-app.listen(PORT, () => console.log(`Running on : http://127.0.0.1:${PORT}`));
+
+app.listen(PORT , ()=>{
+    console.log(`Server is running on port: http://localhost:${PORT}`);
+});
