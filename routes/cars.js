@@ -41,11 +41,12 @@ router.put('/:id', (req, res)=>{
     }
     car.brand = updated.brand;
     car.country = updated.country;
+    res.send("Car was updatd");
 });
 
 router.delete('/:id', (req, res)=>{
     const id= parseInt(req.params.id);
-    const car = car.findIndex(c => c.id === id);
+    const car = cars.findIndex(c => c.id === id);
     if (car === -1){
         res.status(404).send("Car not found");
     }
