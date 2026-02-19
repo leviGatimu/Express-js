@@ -24,7 +24,7 @@ router.get('/:id', (req, res)=>{
 
 router.post('/', (req, res)=>{
     const todo = req.body;
-    if(todo.name.length < 2 && todo.id === todos.some(t => t.id == id)){
+    if( todo.id === todos.some(t => t.id == id)){
         return res.send("Please input longer todo");
     }
     todos.push(todo);
