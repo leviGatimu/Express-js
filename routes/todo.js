@@ -5,9 +5,9 @@ const router = express.Router();
 const todos = [
     { id: 1, name: "Finish math homework." },
     { id: 2, name: "Study PHP for exam." },
-    { id: 3, name: "Push project to GitHub" },
-    { id: 4, name: "Practice coding 30 minutes" },
-    { id: 5, name: "Read physics notes" }
+    { id: 3, name: "Push project to GitHub." },
+    { id: 4, name: "Practice coding 30 minutes." },
+    { id: 5, name: "Read physics notes." }
 ];
 
 router.get('/', (req, res)=>{
