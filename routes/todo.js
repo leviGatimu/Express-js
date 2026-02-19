@@ -3,8 +3,8 @@ import express from 'express';
 const router = express.Router();
 
 const todos = [
-    { id: 1, name: "Finish math homework" },
-    { id: 2, name: "Study PHP for exam" },
+    { id: 1, name: "Finish math homework." },
+    { id: 2, name: "Study PHP for exam." },
     { id: 3, name: "Push project to GitHub" },
     { id: 4, name: "Practice coding 30 minutes" },
     { id: 5, name: "Read physics notes" }
@@ -17,7 +17,7 @@ router.get('/:id', (req, res)=>{
     const id = parseInt(req.params.id);
     const todo = todos.find(t => t.id == id);
     if(!todo){
-        res.status(404).send("Todo not found");
+        res.status(404).send("Todo not found.");
     }
     res.status(201).send(todo);
 });
