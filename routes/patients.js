@@ -48,4 +48,5 @@ router.delete('/:id', (req, res)=>{
     }
     patients.splice(index, 1);
     res.send("Student succesfully deleted");
-})
+});
+export default router;
