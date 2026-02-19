@@ -25,7 +25,7 @@ router.get('/:id', (req, res)=>{
 router.post('/', (req, res)=>{
     const todo = req.body;
     if(todo.name.length < 2){
-        res.send("Please input longer todo");
+        return res.send("Please input longer todo");
     }
     todos.push(todo);
     res.send("Todo was succesfully added!");
