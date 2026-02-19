@@ -47,4 +47,4 @@ router.delete('/:id', (req, res)=>{
     }
     todos.splice(index , 1);
     res.send("Student succesfully deleted!");
-})
+});
