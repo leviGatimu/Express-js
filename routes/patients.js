@@ -47,6 +47,6 @@ router.delete('/:id', (req, res)=>{
         res.status(404).send("Patient not found");
     }
     patients.splice(index, 1);
-    res.send("Student succesfully deleted");
+    res.send("Student succesfully deleted.");
 });
 export default router;
