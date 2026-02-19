@@ -24,9 +24,10 @@ router.get('/:id', (req, res)=>{
 
 router.post('/', (req, res)=>{
     const todo = req.body;
-    if( todo.id === todos.some(t => t.id == id)){
-        return res.send("Please input longer todo");
-    }
+    const idexists = todos.some(t => t.id == id)
+     if(idexists){
+        return res.status(400).send("id already exists");
+     }
     todos.push(todo);
     res.send("Todo was succesfully added!");
 });
