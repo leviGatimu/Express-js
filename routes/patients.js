@@ -42,7 +42,7 @@ router.put('/:id', (req, res)=>{
 });
 router.delete('/:id', (req, res)=>{
     const id = parseInt(req.params.id);
-    const index = patient.findIndex(p=> p.id == id);
+    const index = patients.findIndex(p=> p.id == id);
     if(index == -1){
         res.status(404).send("Patient not found");
     }
