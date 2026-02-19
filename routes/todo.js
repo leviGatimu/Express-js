@@ -27,7 +27,7 @@ router.post('/', (req, res)=>{
     const id = parseInt(req.params.id);
     const idexists = todos.some(t => t.id == id)
      if(idexists){
-        return res.status(400).send("id already exists");
+        return res.status(400).send("id already exists.");
      }
     todos.push(todo);
     res.send("Todo was succesfully added!");
