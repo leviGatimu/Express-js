@@ -24,6 +24,7 @@ router.get('/:id', (req, res)=>{
 
 router.post('/', (req, res)=>{
     const todo = req.body;
+    const id = parseInt(req.params.id);
     const idexists = todos.some(t => t.id == id)
      if(idexists){
         return res.status(400).send("id already exists");
